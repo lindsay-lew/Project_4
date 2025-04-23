@@ -1,2 +1,2 @@
 # docchat: chat with your documents!
-![test cases](https://github.com/lindsay-lew/docchat/workflows/tests/badge.svg)
+![test cases](https://github.com/lindsay-lew/Project_4/.github/workflows/tests.yml)
