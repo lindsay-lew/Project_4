@@ -3,3 +3,9 @@ beautifulsoup4
 lxml
 python-dotenv
 nltk
+
+os
+requests
+urlparse
+PdfReader
+BytesIO
