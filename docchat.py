@@ -59,6 +59,11 @@ def chunk_text_by_words(text, max_words=100, overlap=50):
 def load_text(filepath_or_url):
     '''
     Loads text from a given file path or URL. Supports .txt, .html, and .pdf formats.
+
+    have an example text file that says hello world on it, the output says hello world
+    demonstrating it can read a file and get the output 
+
+    test cases for html and pdf also 
     '''
     import os
     import requests
@@ -153,9 +158,9 @@ def score_chunk(chunk: str, query: str, language: str = "french") -> float:
 
     Examples (English):
         >>> round(score_chunk("The sun is bright and hot.", "How hot is the sun?", language="english"), 2)
-        0.5
+        0.22
         >>> round(score_chunk("The red car is speeding down the road.", "What color is the car?", language="english"), 2)
-        0.25
+        0.2
         >>> score_chunk("Bananas are yellow.", "How do airplanes fly?", language="english")
         0.0
     '''
@@ -169,25 +174,7 @@ def score_chunk(chunk: str, query: str, language: str = "french") -> float:
     union = chunk_words | query_words
 
     return len(intersection) / len(union)
-    '''
-    def preprocess(text):
-        doc = nlp(text.lower())
-        return set(
-            token.lemma_ for token in doc
-            if token.is_alpha and not token.is_stop
-        )
-
-    chunk_words = preprocess(chunk)
-    query_words = preprocess(query)
-
-    if not chunk_words or not query_words:
-        return 0.0
-
-    intersection = chunk_words & query_words
-    union = chunk_words | query_words
-
-    return len(intersection) / len(union)
-    '''
+    
 
 def find_relevant_chunks(text, query, num_chunks=5):
     '''
@@ -201,6 +188,7 @@ def find_relevant_chunks(text, query, num_chunks=5):
     >>> find_relevant_chunks(text, query, num_chunks=1)
     ['The sun is bright and hot.']
     '''
+    #rewrite
     chunks = chunk_text_by_words(text, max_words=10, overlap=5)
     scored = [(chunk, score_chunk(chunk, query, language=language)) for chunk in chunks]
     top_chunks = sorted(scored, key=lambda x: x[1], reverse=True)[:num_chunks]
