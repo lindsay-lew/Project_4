@@ -64,6 +64,12 @@ def load_text(filepath_or_url):
     demonstrating it can read a file and get the output 
 
     test cases for html and pdf also 
+    >>> load_text("docs/hello.txt")
+    'hello world'
+    >>> load_text("docs/hello.html")
+    'hello world'
+    >>> 'Carmel' in load_text("docs/NYT 36 Hours in Carmel, Calif.pdf")
+    True
     '''
     import os
     import requests
