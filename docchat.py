@@ -29,7 +29,6 @@ def chunk_text_by_words(text, max_words=100, overlap=50):
     '''
     Splits text into overlapping chunks by word count.
 
-    Examples:
         >>> text = "The quick brown fox jumps over the lazy dog. It was a sunny day and the birds were singing."
         >>> chunks = chunk_text_by_words(text, max_words=5, overlap=2)
         >>> len(chunks)
@@ -60,10 +59,6 @@ def load_text(filepath_or_url):
     '''
     Loads text from a given file path or URL. Supports .txt, .html, and .pdf formats.
 
-    have an example text file that says hello world on it, the output says hello world
-    demonstrating it can read a file and get the output 
-
-    test cases for html and pdf also 
     >>> load_text("docs/hello.txt")
     'hello world'
     >>> load_text("docs/hello.html")
