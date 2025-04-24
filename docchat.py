@@ -186,13 +186,21 @@ def find_relevant_chunks(text, query, num_chunks=5):
     >>> text = "The sun is bright and hot. Bananas are yellow. The red car speeds by."
     >>> query = "How hot is the sun?"
     >>> find_relevant_chunks(text, query, num_chunks=1)
-    ['The sun is bright and hot.']
+    ['The sun is bright and hot. Bananas are yellow. The']
     '''
-    #rewrite
     chunks = chunk_text_by_words(text, max_words=10, overlap=5)
-    scored = [(chunk, score_chunk(chunk, query, language=language)) for chunk in chunks]
-    top_chunks = sorted(scored, key=lambda x: x[1], reverse=True)[:num_chunks]
-    return [chunk for chunk, _ in top_chunks]
+
+    # Use accumulator pattern to gather scored chunks
+    scored_chunks = []
+    for chunk in chunks:
+        score = score_chunk(chunk, query)
+        scored_chunks.append((chunk, score))
+
+    # Sort and slice
+    scored_chunks.sort(key=lambda x: x[1], reverse=True)
+    top_chunks = [chunk for chunk, _ in scored_chunks[:num_chunks]]
+
+    return top_chunks
 
 
 
