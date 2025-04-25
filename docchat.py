@@ -171,15 +171,41 @@ if __name__ == '__main__':
     messages = []
     messages.append({
         'role': 'system',
-        'content': "You are a helpful assistant. You always answer in 3 clear and concise sentences.",
+        'content': "You are a helpful assistant. You always provide a brief summary on the input files. You always answer questions in 3 clear and concise sentences.",
     })
+
+    import sys
+    filepath_or_url = sys.argv[1]
+    document_text = load_text(filepath_or_url)
+
+    summary = llm([
+        {'role': 'system', 'content': 'You summarize documents in 3 clear and concise sentences.'},
+        {'role': 'user', 'content': f'Summarize this document:\n\n{document_text[:4000]}'}
+    ])
+
     while True:
         # Get input from the user 
         text = input('docchat>')
+
+        top_chunks = find_relevant_chunks(document_text, text, num_chunks=10)
+        retrieved_info = "\n\n".join(top_chunks)
+
+        modified_text = f"""
+You are doing RAG.
+
+Document summary:
+{summary}
+
+Relevant chunks:
+{retrieved_info}
+
+The user's question is: {text}
+""".strip()
+
         # Pass that input to llm
         messages.append({
             'role': 'user',
-            'content': text,
+            'content': modified_text,
         })
         result = llm(messages)
 
@@ -192,5 +218,4 @@ if __name__ == '__main__':
 
         # Print the llm's response to the user
         print('result=', result)
-        import pprint
-        pprint.pprint(messages)
+        
