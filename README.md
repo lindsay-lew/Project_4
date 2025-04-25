@@ -25,4 +25,4 @@ docchat> What is the cheapest place to stay?
 ```
 result= According to the document, the cheapest place to stay in Carmel is not explicitly mentioned, but it does highlight the charm and uniqueness of the area's bed and breakfasts, like the Running Iron Restaurant, which may offer affordable and cozy accommodations. Additionally, the document mentions the village's unique shops, galleries, and restaurants, so visitors may want to explore these options for budget-friendly stay and eats.
 ```
-Although in the "Where to stay" section, the article does lists a number of hotels and other accomodations with their nightly rates, this program has a difficult time evaluating all the numbers and answering a question that doesn't explicitly state the word "cheapest." 
+Although in the "Where to stay" section, the article does lists a number of hotels and other accomodations with their nightly rates, this program has a difficult time evaluating the many numbers and answering a question that doesn't explicitly state the word "cheapest." 

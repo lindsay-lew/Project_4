@@ -27,7 +27,7 @@ def llm(messages, temperature=1):
 
 def load_text(filepath_or_url):
     '''
-    Loads text from a given file path or URL. Supports .txt, .html, and .pdf formats.
+    This function will load text from a given file path or URL. Supports .txt, .html, and .pdf formats.
 
     >>> load_text("docs/hello.txt")
     'hello world'
@@ -87,7 +87,7 @@ def load_text(filepath_or_url):
 
 def chunk_text_by_words(text, max_words=100, overlap=50):
     '''
-    Splits text into overlapping chunks by word count.
+    This function will split the input text document into chunks of length max_words. Each chunk should overlap previous chunks by the overlap amount.
 
         >>> text = "The quick brown fox jumps over the lazy dog. It was a sunny day and the birds were singing."
         >>> chunks = chunk_text_by_words(text, max_words=5, overlap=2)
@@ -117,7 +117,7 @@ def chunk_text_by_words(text, max_words=100, overlap=50):
 
 def score_chunk(chunk: str, query: str, language: str = "french") -> float:
     '''
-    Scores a chunk against a user query using Jaccard similarity of lemmatized word sets with stopword removal.
+    This function will associate a "similarity score" between 0 and 1 to the chunk and query variables. Higher scores should signify "more similar" and lower scores should signify "less similar".
 
     Examples (English):
         >>> round(score_chunk("The sun is bright and hot.", "How hot is the sun?", language="english"), 2)
