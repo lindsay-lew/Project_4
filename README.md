@@ -5,6 +5,7 @@
 Docchat is a Python program that lets users have conversational interactions with their documents using a large language model (LLM). It provides an engaging and responsive chat interface for text-based exploration.
 
 
----Insert animated GIF here---
+## Demo
+![GIF](GIF.gif)
 
 ---Insert text-based usage example inside of a code block here---
