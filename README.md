@@ -11,22 +11,18 @@ This Python program allows users have conversational interactions with their doc
 
 ## Code Examples 
 1. Program answers this question well: 
-
 ```
 docchat> Please provide a summary of the best activities to do in Carmel for families.
 ```
-
 ```
 result= Here is a summary of the best activities to do in Carmel for families: Carmel, California, is a great destination for families with plenty of activities to enjoy together. One of the top recommendations is to visit Point Lobos State Natural Reserve to catch a glimpse of migrating whales. Families can also stop at Dutch Door Donuts and enjoy a sweet treat at Carmel Beach, which is dog-friendly and a great spot for a family outing. As for the user's question, the article highlights whale watching and beach activities as great options for families to enjoy together in Carmel.
 ```
 
-
----Insert text-based usage example inside of a code block here---
-
-a text-based usage example inside of a code block
-
-you must have an example where:
-
-    your program answers the question well
-    your program answers the question poorly
-
+2. Program answers this question poorly: 
+```
+docchat> What is the cheapest place to stay?
+```
+```
+result= According to the document, the cheapest place to stay in Carmel is not explicitly mentioned, but it does highlight the charm and uniqueness of the area's bed and breakfasts, like the Running Iron Restaurant, which may offer affordable and cozy accommodations. Additionally, the document mentions the village's unique shops, galleries, and restaurants, so visitors may want to explore these options for budget-friendly stay and eats.
+```
+Although in the "Where to stay" section, the article does lists a number of hotels and other accomodations with their nightly rates, this program has a difficult time evaluating all the numbers and answering a question that doesn't explicitly state the word "cheapest." 
