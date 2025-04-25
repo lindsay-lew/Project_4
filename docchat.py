@@ -33,7 +33,7 @@ def load_text(filepath_or_url):
     'hello world'
     >>> load_text("docs/hello.html")
     'hello world'
-    >>> 'Carmel' in load_text("docs/NYT 36 Hours in Carmel, Calif.pdf")
+    >>> 'Carmel' in load_text("docs/carmel.pdf")
     True
     '''
     import os
