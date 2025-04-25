@@ -25,36 +25,6 @@ def llm(messages, temperature=1):
     return chat_completion.choices[0].message.content
 
 
-def chunk_text_by_words(text, max_words=100, overlap=50):
-    '''
-    Splits text into overlapping chunks by word count.
-
-        >>> text = "The quick brown fox jumps over the lazy dog. It was a sunny day and the birds were singing."
-        >>> chunks = chunk_text_by_words(text, max_words=5, overlap=2)
-        >>> len(chunks)
-        7
-        >>> chunks[0]
-        'The quick brown fox jumps'
-        >>> chunks[1]
-        'fox jumps over the lazy'
-        >>> chunks[4]
-        'sunny day and the birds'
-        >>> chunks[-1]
-        'singing.'
-    '''
-    words = text.split()
-    chunks = []
-    start = 0
-
-    while start < len(words):
-        end = start + max_words
-        chunk = " ".join(words[start:end])
-        chunks.append(chunk)
-        start += max_words - overlap
-
-    return chunks
-
-
 def load_text(filepath_or_url):
     '''
     Loads text from a given file path or URL. Supports .txt, .html, and .pdf formats.
@@ -115,6 +85,36 @@ def load_text(filepath_or_url):
         raise ValueError(f"Unsupported file extension: {ext}")
 
 
+def chunk_text_by_words(text, max_words=100, overlap=50):
+    '''
+    Splits text into overlapping chunks by word count.
+
+        >>> text = "The quick brown fox jumps over the lazy dog. It was a sunny day and the birds were singing."
+        >>> chunks = chunk_text_by_words(text, max_words=5, overlap=2)
+        >>> len(chunks)
+        7
+        >>> chunks[0]
+        'The quick brown fox jumps'
+        >>> chunks[1]
+        'fox jumps over the lazy'
+        >>> chunks[4]
+        'sunny day and the birds'
+        >>> chunks[-1]
+        'singing.'
+    '''
+    words = text.split()
+    chunks = []
+    start = 0
+
+    while start < len(words):
+        end = start + max_words
+        chunk = " ".join(words[start:end])
+        chunks.append(chunk)
+        start += max_words - overlap
+
+    return chunks
+
+
 def score_chunk(chunk: str, query: str, language: str = "french") -> float:
     '''
     Scores a chunk against a user query using Jaccard similarity of lemmatized word sets with stopword removal.
@@ -171,7 +171,7 @@ if __name__ == '__main__':
     messages = []
     messages.append({
         'role': 'system',
-        'content': "You are a helpful assistant. You always speak like a pirate. You always answer in 1 sentence",
+        'content': "You are a helpful assistant. You always answer in 3 clear and concise sentences.",
     })
     while True:
         # Get input from the user 
