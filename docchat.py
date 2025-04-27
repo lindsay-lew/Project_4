@@ -175,8 +175,13 @@ if __name__ == '__main__':
     })
 
     import sys
+    import langid  #Language detection
+
     filepath_or_url = sys.argv[1]
     document_text = load_text(filepath_or_url)
+
+    document_language = langid.classify(document_text[:1000])[0]
+    print("Detected language:", document_language)
 
     summary = llm([
         {'role': 'system', 'content': 'You summarize documents in 3 clear and concise sentences.'},
@@ -187,7 +192,20 @@ if __name__ == '__main__':
         # Get input from the user 
         text = input('docchat>')
 
-        top_chunks = find_relevant_chunks(document_text, text, num_chunks=10)
+        # Detect the language of the user's query
+        user_language = langid.classify(text)[0]
+
+        # If query is in English but document is not, translate the query
+        if user_language == 'en' and document_language != 'en':
+            translation_prompt = f"Translate this question into {document_language}:\n\n{text}"
+            translated_query = llm([
+                {'role': 'system', 'content': 'You are a translation engine.'},
+                {'role': 'user', 'content': translation_prompt}
+            ])
+        else:
+            translated_query = text
+
+        top_chunks = find_relevant_chunks(document_text, translated_query, num_chunks=10)
         retrieved_info = "\n\n".join(top_chunks)
 
         modified_text = f"""
