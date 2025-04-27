@@ -239,6 +239,7 @@ The user's question is: {text}
         
 
         # Text to speech
+        import groq
         client = groq.Groq()
 
         speech_file_path = "speech.wav" 
