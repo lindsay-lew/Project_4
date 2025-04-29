@@ -237,25 +237,3 @@ The user's question is: {text}
         # Print the llm's response to the user
         print('result=', result)
         
-
-        # Text to speech
-        client = groq.Groq()
-
-        speech_file_path = "speech.wav" 
-        model = "playai-tts"
-        voice = "Fritz-PlayAI"
-        text = result
-        response_format = "wav"
-
-        response = client.audio.speech.create(
-            model=model,
-            voice=voice,
-            input=text,
-            response_format=response_format
-        )
-
-        response.write_to_file(speech_file_path)
-        print("[INFO] speech.wav saved successfully.")
-
-        from playsound import playsound
-        playsound('speech.wav')

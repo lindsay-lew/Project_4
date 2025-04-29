@@ -10,6 +10,10 @@ This Python program allows users have conversational interactions with their doc
 
 
 ## Code Examples 
+```
+$ python3 Project_4/docchat.py docs/carmel.pdf
+```
+
 1. Program answers this question well: 
 ```
 docchat> Please provide a summary of the best activities to do in Carmel for families.
@@ -26,3 +30,15 @@ docchat> What is the cheapest place to stay?
 result= According to the document, the cheapest place to stay in Carmel is not explicitly mentioned, but it does highlight the charm and uniqueness of the area's bed and breakfasts, like the Running Iron Restaurant, which may offer affordable and cozy accommodations. Additionally, the document mentions the village's unique shops, galleries, and restaurants, so visitors may want to explore these options for budget-friendly stay and eats.
 ```
 Although in the "Where to stay" section, the article does lists a number of hotels and other accomodations with their nightly rates, this program has a difficult time evaluating the many numbers and answering a question that doesn't explicitly state the word "cheapest." 
+
+**Language Capabilities** 
+This program support asking questions in English when the document is non-English.
+```
+$ python3 Project_4/docchat.py docs/carmel_spanish.txt
+```
+```
+docchat> Please summarize the article.
+```
+```
+result= Here is a summary of the document in three clear and concise sentences: Carmel, California is a charming coastal town on the Monterey Peninsula that attracts artists, writers, and bohemians with its natural beauty, including the Pacific Ocean, Santa Lucia Mountains, and white sand beaches. The town has a rich cultural scene with numerous art galleries, museums, and restaurants, and is also home to Carmel-by-the-Sea, a picturesque village with unique shops and historic landmarks. The surrounding area offers a range of outdoor activities, including hiking, biking, and birdwatching, and is also home to several award-winning restaurants and wineries.
+```
