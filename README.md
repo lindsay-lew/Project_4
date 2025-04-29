@@ -35,7 +35,7 @@ result= According to the document, the cheapest place to stay in Carmel is not e
 Although in the "Where to stay" section, the article does lists a number of hotels and other accomodations with their nightly rates, this program has a difficult time evaluating the many numbers and answering a question that doesn't explicitly state the word "cheapest." 
 <br></br>
 
-## Language Capabilities** 
+## Language Capabilities
 
 This program support asking questions in English when the document is non-English.
 ```
