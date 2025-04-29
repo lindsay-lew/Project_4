@@ -17,6 +17,7 @@ $ python3 Project_4/docchat.py docs/carmel.pdf
 ```
 
 
+
 1. Program answers this question well: 
 ```
 docchat> Please provide a summary of the best activities to do in Carmel for families.
@@ -24,6 +25,7 @@ docchat> Please provide a summary of the best activities to do in Carmel for fam
 ```
 result= Here is a summary of the best activities to do in Carmel for families: Carmel, California, is a great destination for families with plenty of activities to enjoy together. One of the top recommendations is to visit Point Lobos State Natural Reserve to catch a glimpse of migrating whales. Families can also stop at Dutch Door Donuts and enjoy a sweet treat at Carmel Beach, which is dog-friendly and a great spot for a family outing. As for the user's question, the article highlights whale watching and beach activities as great options for families to enjoy together in Carmel.
 ```
+
 
 
 2. Program answers this question poorly: 
